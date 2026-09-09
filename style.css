@@ -2,7 +2,7 @@
    Student Information System — Stylesheet
    1. Tokens   2. Base   3. Backdrop   4. Masthead
    5. ID card  6. Rows    7. Button     8. Contact
-   9. Barcode  10. Motion & responsive
+   9. Barcode  9c. Team expand   10. Motion & responsive
    ============================================================ */
 
 /* ---------- 1. Tokens ---------- */
@@ -48,6 +48,12 @@
 
   --ease: cubic-bezier(0.32, 0.72, 0, 1);
   --dur: 280ms;
+
+  /* Dedicated timing for the team-card expand/collapse move — shorter
+     and a snappier deceleration than --ease/--dur, which are tuned for
+     small hover effects rather than a large position/size change. */
+  --ease-flip: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-flip: 240ms;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -287,35 +293,6 @@ body {
   height: 62px;
   display: grid;
   place-items: center;
-}
-
-.avatar__ring {
-  position: absolute;
-  inset: 0;
-  transform: rotate(-90deg);
-}
-
-.avatar__track,
-.avatar__progress {
-  fill: none;
-  stroke-width: 6;
-  stroke-linecap: round;
-}
-
-.avatar__track {
-  stroke: var(--border);
-}
-
-/* r=45 -> circumference 282.7; 5 of 6 semesters = 83.3% */
-.avatar__progress {
-  stroke: var(--brand);
-  stroke-dasharray: 282.7;
-  stroke-dashoffset: 47.1;
-  animation: sweep 1.4s var(--ease) 300ms both;
-}
-
-@keyframes sweep {
-  from { stroke-dashoffset: 282.7; }
 }
 
 .avatar__initial {
@@ -776,6 +753,154 @@ body {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+/* ---------- 9c. Team card expand interaction ---------- */
+
+.teamcard {
+  cursor: pointer;
+}
+
+.teamcard:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.teamcard.is-inert {
+  pointer-events: none;
+  opacity: 0.45;
+  transform: scale(0.97);
+}
+
+.teamcard__close {
+  display: none;
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface-solid);
+  color: var(--ink-muted);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+
+.teamcard.is-expanded .teamcard__close {
+  display: flex;
+}
+
+.teamcard__close:hover {
+  color: var(--ink);
+  background: var(--surface-sunken);
+}
+
+.teamcard__close:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.teamcard__bio {
+  display: none;
+  margin: var(--space-3) 0 0;
+  padding: 0 var(--space-4);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.teamcard.is-expanded .teamcard__bio {
+  display: block;
+}
+
+.teamcard.is-flipping {
+  position: fixed;
+  z-index: 60;
+  margin: 0;
+  cursor: default;
+  transition: top var(--dur-flip) var(--ease-flip),
+              left var(--dur-flip) var(--ease-flip),
+              width var(--dur-flip) var(--ease-flip),
+              height var(--dur-flip) var(--ease-flip),
+              box-shadow var(--dur-flip) var(--ease-flip);
+}
+
+.teamcard.is-expanded {
+  z-index: 60;
+  background: var(--surface-solid);
+  backdrop-filter: none;
+  box-shadow: 0 30px 80px -20px rgba(8, 11, 20, 0.5);
+}
+
+/* Roomier proportions so the expanded card reads as its own card,
+   not a stretched-out version of the compact grid tile. */
+.teamcard.is-expanded .teamcard__head {
+  padding: 0 var(--space-5) var(--space-4);
+  gap: var(--space-4);
+}
+
+.teamcard.is-expanded .monogram {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  font-size: 22px;
+}
+
+.teamcard.is-expanded .teamcard__name {
+  font-size: 19px;
+}
+
+.teamcard.is-expanded .teamcard__role {
+  font-size: 14px;
+}
+
+.teamcard.is-expanded .record--compact {
+  padding: 0 var(--space-5);
+}
+
+.teamcard.is-expanded .record--compact .label {
+  font-size: 13px;
+}
+
+.teamcard.is-expanded .record--compact .value {
+  font-size: 14px;
+}
+
+.teamcard.is-expanded .teamcard__bio {
+  padding: 0 var(--space-5);
+  margin-top: var(--space-4);
+  font-size: 15px;
+}
+
+.teamcard.is-expanded .teamcard__foot {
+  padding: var(--space-4) var(--space-5);
+}
+
+.teamcard.is-flipping:hover,
+.teamcard.is-expanded:hover {
+  transform: none;
+}
+
+.team-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(8, 11, 20, 0.45);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease);
+}
+
+.team-backdrop.is-visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* ---------- 10. Motion & responsive ---------- */
