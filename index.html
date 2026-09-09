@@ -38,71 +38,52 @@
 
       <header class="profile">
         <div class="avatar">
-          <svg class="avatar__ring" viewBox="0 0 100 100" aria-hidden="true">
-            <circle class="avatar__track" cx="50" cy="50" r="45" />
-            <circle class="avatar__progress" cx="50" cy="50" r="45" />
-          </svg>
-          <span class="avatar__initial" aria-hidden="true">A</span>
+          <span class="avatar__initial" aria-hidden="true">C</span>
         </div>
 
         <div class="profile__text">
-          <h2 class="profile__name">Arpan Mukherjee</h2>
-          <p class="profile__meta">Semester 5 of 6 &middot; Section A</p>
+          <h2 class="profile__name">Dr. Cynthia T</h2>
+          <p class="profile__meta">DevOps Teacher &middot; Computer Science</p>
         </div>
 
-        <span class="pill">MCA</span>
+        <span class="pill">Faculty</span>
       </header>
 
       <dl class="record">
         <div class="record__row" style="--i: 0">
           <dt class="label">Name</dt>
-          <dd class="value">Arpan Mukherjee</dd>
+          <dd class="value">Dr. Cynthia T</dd>
         </div>
         <div class="record__row" style="--i: 1">
-          <dt class="label">Register Number</dt>
-          <dd class="value value--mono">2547116</dd>
+          <dt class="label">Designation</dt>
+          <dd class="value">DevOps Teacher</dd>
         </div>
         <div class="record__row" style="--i: 2">
-          <dt class="label">Programme</dt>
-          <dd class="value">MCA</dd>
+          <dt class="label">Department</dt>
+          <dd class="value">Computer Science</dd>
         </div>
       </dl>
 
       <button id="showDetailsBtn" class="btn" type="button"
-              aria-expanded="false" aria-controls="studentDetails">
+              aria-expanded="false" aria-controls="facultyDetails">
         <span class="btn__label">Show Details</span>
         <svg class="btn__chevron" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M6 9l6 6 6-6" />
         </svg>
       </button>
 
-      <div class="details" id="studentDetails">
+      <div class="details" id="facultyDetails">
         <div class="details__inner">
-          <dl class="record record--nested">
-            <div class="record__row">
-              <dt class="label">Semester</dt>
-              <dd class="value">5</dd>
-            </div>
-            <div class="record__row">
-              <dt class="label">Section</dt>
-              <dd class="value">A</dd>
-            </div>
-            <div class="record__row">
-              <dt class="label">Mentor</dt>
-              <dd class="value">Dr. Cynthia T</dd>
-            </div>
-          </dl>
-
           <section class="contact">
             <h3 class="contact__title">Contact Information</h3>
 
-            <a class="contact__row" href="mailto:arpanmmukherjeee7125@gmail.com">
+            <a class="contact__row" href="mailto:Cynthia.t@christuniversity.in">
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
                 <rect x="3" y="5" width="18" height="14" rx="2" />
                 <path d="M3 7l9 6 9-6" />
               </svg>
               <span class="contact__label">Email</span>
-              <span class="contact__value">arpanmmukherjeee7125@gmail.com</span>
+              <span class="contact__value">Cynthia.t@christuniversity.in</span>
             </a>
 
             <a class="contact__row" href="#">
@@ -112,13 +93,22 @@
               <span class="contact__label">Phone</span>
               <span class="contact__value todo">To be added</span>
             </a>
+
+            <a class="contact__row" href="#">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 3" />
+              </svg>
+              <span class="contact__label">Office Hours</span>
+              <span class="contact__value todo">To be added</span>
+            </a>
           </section>
         </div>
       </div>
 
       <footer class="barcode">
         <div class="barcode__bars" aria-hidden="true"></div>
-        <span class="barcode__text">CHRIST &middot; MCA &middot; 2547116</span>
+        <span class="barcode__text">CHRIST &middot; Computer Science &middot; Faculty</span>
       </footer>
     </article>
 
@@ -135,8 +125,10 @@
       <div class="team__grid">
 
         <!-- ---------- Student 1 ---------- -->
-        <article class="teamcard" style="--accent: #4c5fd7; --i: 0">
+        <article class="teamcard" style="--accent: #4c5fd7; --i: 0"
+                 tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false">
           <div class="teamcard__sheen" aria-hidden="true"></div>
+          <button type="button" class="teamcard__close" aria-label="Close details">&times;</button>
 
           <header class="teamcard__head">
             <span class="monogram" aria-hidden="true">A</span>
@@ -169,14 +161,18 @@
             </div>
           </dl>
 
+          <p class="teamcard__bio">Set up the repository and base app, then kept everyone's branches in sync &mdash; the one who actually reads the merge conflicts.</p>
+
           <footer class="teamcard__foot">
             <span class="tag">Repository &amp; integration</span>
           </footer>
         </article>
 
         <!-- ---------- Student 2 ---------- -->
-        <article class="teamcard" style="--accent: #9333ea; --i: 1">
+        <article class="teamcard" style="--accent: #9333ea; --i: 1"
+                 tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false">
           <div class="teamcard__sheen" aria-hidden="true"></div>
+          <button type="button" class="teamcard__close" aria-label="Close details">&times;</button>
 
           <header class="teamcard__head">
             <span class="monogram" aria-hidden="true">J</span>
@@ -197,7 +193,9 @@
             </div>
             <div class="record__row">
               <dt class="label">Email</dt>
-              <dd class="value value--wrap todo">To be added</dd>
+              <dd class="value value--wrap">
+                <a href="mailto:joshua.george@mca.christuniversity.in">joshua.george@mca.christuniversity.in</a>
+              </dd>
             </div>
             <div class="record__row">
               <dt class="label">GitHub</dt>
@@ -207,14 +205,18 @@
             </div>
           </dl>
 
+          <p class="teamcard__bio">Shaped how the app looks and feels &mdash; layout, colour, type, and the small animation details.</p>
+
           <footer class="teamcard__foot">
             <span class="tag">HTML &amp; CSS</span>
           </footer>
         </article>
 
         <!-- ---------- Student 3 ---------- -->
-        <article class="teamcard" style="--accent: #06b6d4; --i: 2">
+        <article class="teamcard" style="--accent: #06b6d4; --i: 2"
+                 tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false">
           <div class="teamcard__sheen" aria-hidden="true"></div>
+          <button type="button" class="teamcard__close" aria-label="Close details">&times;</button>
 
           <header class="teamcard__head">
             <span class="monogram" aria-hidden="true">S</span>
@@ -245,6 +247,8 @@
             </div>
           </dl>
 
+          <p class="teamcard__bio">Wired up the interactions &mdash; the show/hide logic and the small touches that make the UI feel alive.</p>
+
           <footer class="teamcard__foot">
             <span class="tag">Client-side behaviour</span>
           </footer>
@@ -255,6 +259,8 @@
 
     <p class="footnote">Student Information System &middot; Collaborative Git Workflow Lab</p>
   </main>
+
+  <div class="team-backdrop" aria-hidden="true"></div>
 
   <script src="script.js"></script>
 </body>
