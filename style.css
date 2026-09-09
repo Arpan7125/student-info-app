@@ -126,3 +126,20 @@ button:focus-visible {
   color: var(--text-muted);
   font-size: 14px;
 }
+
+/* ---------- Details & contact cards ---------- */
+
+.details,
+.contact {
+  margin-top: var(--space-3);
+}
+
+.contact h2 {
+  margin: 0;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border);
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
