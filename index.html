@@ -3,33 +3,253 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
   <title>Student Information System</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Decorative animated backdrop -->
+  <div class="aurora" aria-hidden="true">
+    <span class="aurora__blob aurora__blob--1"></span>
+    <span class="aurora__blob aurora__blob--2"></span>
+    <span class="aurora__blob aurora__blob--3"></span>
+  </div>
+
   <main class="app">
-    <h1>Student Management System – MCA</h1>
-    <p class="subtitle">Department of Computer Science</p>
 
-    <div class="student-card">
-      <p><span class="label">Name:</span> <span class="value">Cynthia</span></p>
-      <p><span class="label">Register Number:</span> <span class="value">101</span></p>
-      <p><span class="label">Programme:</span> <span class="value">MCA</span></p>
-    </div>
+    <header class="masthead">
+      <h1>Student Management System &ndash; MCA</h1>
+      <p class="subtitle">
+        <span class="dot" aria-hidden="true"></span>
+        Department of Computer Science
+      </p>
+    </header>
 
-    <button id="showDetailsBtn">Show Details</button>
+    <!-- ============================================================
+         Student record (the record this application displays)
+         ============================================================ -->
+    <article class="idcard" id="idcard">
+      <div class="idcard__sheen" aria-hidden="true"></div>
 
-    <div class="student-card details" id="studentDetails" hidden>
-      <p><span class="label">Semester:</span> <span class="value">5</span></p>
-      <p><span class="label">Section:</span> <span class="value">A</span></p>
-      <p><span class="label">Mentor:</span> <span class="value">Dr. R. Menon</span></p>
-    </div>
+      <div class="idcard__lanyard" aria-hidden="true">
+        <span class="idcard__clip"></span>
+      </div>
 
-    <section class="student-card contact">
-      <h2>Contact Information</h2>
-      <p><span class="label">Email:</span> <span class="value">cynthia@christuniversity.in</span></p>
-      <p><span class="label">Phone:</span> <span class="value">+91 98450 12345</span></p>
+      <header class="profile">
+        <div class="avatar">
+          <svg class="avatar__ring" viewBox="0 0 100 100" aria-hidden="true">
+            <circle class="avatar__track" cx="50" cy="50" r="45" />
+            <circle class="avatar__progress" cx="50" cy="50" r="45" />
+          </svg>
+          <span class="avatar__initial" aria-hidden="true">A</span>
+        </div>
+
+        <div class="profile__text">
+          <h2 class="profile__name">Arpan Mukherjee</h2>
+          <p class="profile__meta">Semester 5 of 6 &middot; Section A</p>
+        </div>
+
+        <span class="pill">MCA</span>
+      </header>
+
+      <dl class="record">
+        <div class="record__row" style="--i: 0">
+          <dt class="label">Name</dt>
+          <dd class="value">Arpan Mukherjee</dd>
+        </div>
+        <div class="record__row" style="--i: 1">
+          <dt class="label">Register Number</dt>
+          <dd class="value value--mono">2547116</dd>
+        </div>
+        <div class="record__row" style="--i: 2">
+          <dt class="label">Programme</dt>
+          <dd class="value">MCA</dd>
+        </div>
+      </dl>
+
+      <button id="showDetailsBtn" class="btn" type="button"
+              aria-expanded="false" aria-controls="studentDetails">
+        <span class="btn__label">Show Details</span>
+        <svg class="btn__chevron" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </button>
+
+      <div class="details" id="studentDetails">
+        <div class="details__inner">
+          <dl class="record record--nested">
+            <div class="record__row">
+              <dt class="label">Semester</dt>
+              <dd class="value">5</dd>
+            </div>
+            <div class="record__row">
+              <dt class="label">Section</dt>
+              <dd class="value">A</dd>
+            </div>
+            <div class="record__row">
+              <dt class="label">Mentor</dt>
+              <dd class="value">Dr. Cynthia T</dd>
+            </div>
+          </dl>
+
+          <section class="contact">
+            <h3 class="contact__title">Contact Information</h3>
+
+            <a class="contact__row" href="mailto:arpanmmukherjeee7125@gmail.com">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="M3 7l9 6 9-6" />
+              </svg>
+              <span class="contact__label">Email</span>
+              <span class="contact__value">arpanmmukherjeee7125@gmail.com</span>
+            </a>
+
+            <a class="contact__row" href="#">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z" />
+              </svg>
+              <span class="contact__label">Phone</span>
+              <span class="contact__value todo">To be added</span>
+            </a>
+          </section>
+        </div>
+      </div>
+
+      <footer class="barcode">
+        <div class="barcode__bars" aria-hidden="true"></div>
+        <span class="barcode__text">CHRIST &middot; MCA &middot; 2547116</span>
+      </footer>
+    </article>
+
+    <!-- ============================================================
+         PROJECT TEAM
+         TO FILL IN: replace every "To be added" below with the real
+         value. Each card needs: name, monogram letter, register
+         number, email and GitHub username.
+         ============================================================ -->
+    <section class="team">
+      <h2 class="team__title">Project Team</h2>
+      <p class="team__caption">Three developers, one repository, six feature branches.</p>
+
+      <div class="team__grid">
+
+        <!-- ---------- Student 1 ---------- -->
+        <article class="teamcard" style="--accent: #4c5fd7; --i: 0">
+          <div class="teamcard__sheen" aria-hidden="true"></div>
+
+          <header class="teamcard__head">
+            <span class="monogram" aria-hidden="true">A</span>
+            <div class="teamcard__id">
+              <h3 class="teamcard__name">Arpan Mukherjee</h3>
+              <p class="teamcard__role">Team Lead / Developer</p>
+            </div>
+          </header>
+
+          <dl class="record record--compact">
+            <div class="record__row">
+              <dt class="label">Register No.</dt>
+              <dd class="value value--mono">2547116</dd>
+            </div>
+            <div class="record__row">
+              <dt class="label">Programme</dt>
+              <dd class="value">MCA</dd>
+            </div>
+            <div class="record__row">
+              <dt class="label">Email</dt>
+              <dd class="value value--wrap">
+                <a href="mailto:arpanmmukherjeee7125@gmail.com">arpanmmukherjeee7125@gmail.com</a>
+              </dd>
+            </div>
+            <div class="record__row">
+              <dt class="label">GitHub</dt>
+              <dd class="value value--mono">
+                <a href="https://github.com/Arpan7125">@Arpan7125</a>
+              </dd>
+            </div>
+          </dl>
+
+          <footer class="teamcard__foot">
+            <span class="tag">Repository &amp; integration</span>
+          </footer>
+        </article>
+
+        <!-- ---------- Student 2 ---------- -->
+        <article class="teamcard" style="--accent: #9333ea; --i: 1">
+          <div class="teamcard__sheen" aria-hidden="true"></div>
+
+          <header class="teamcard__head">
+            <span class="monogram" aria-hidden="true">2</span>
+            <div class="teamcard__id">
+              <h3 class="teamcard__name todo">Team Member 2</h3>
+              <p class="teamcard__role">UI Developer</p>
+            </div>
+          </header>
+
+          <dl class="record record--compact">
+            <div class="record__row">
+              <dt class="label">Register No.</dt>
+              <dd class="value value--mono todo">To be added</dd>
+            </div>
+            <div class="record__row">
+              <dt class="label">Programme</dt>
+              <dd class="value">MCA</dd>
+            </div>
+            <div class="record__row">
+              <dt class="label">Email</dt>
+              <dd class="value value--wrap todo">To be added</dd>
+            </div>
+            <div class="record__row">
+              <dt class="label">GitHub</dt>
+              <dd class="value value--mono todo">To be added</dd>
+            </div>
+          </dl>
+
+          <footer class="teamcard__foot">
+            <span class="tag">HTML &amp; CSS</span>
+          </footer>
+        </article>
+
+        <!-- ---------- Student 3 ---------- -->
+        <article class="teamcard" style="--accent: #06b6d4; --i: 2">
+          <div class="teamcard__sheen" aria-hidden="true"></div>
+
+          <header class="teamcard__head">
+            <span class="monogram" aria-hidden="true">3</span>
+            <div class="teamcard__id">
+              <h3 class="teamcard__name todo">Team Member 3</h3>
+              <p class="teamcard__role">JavaScript Developer</p>
+            </div>
+          </header>
+
+          <dl class="record record--compact">
+            <div class="record__row">
+              <dt class="label">Register No.</dt>
+              <dd class="value value--mono todo">To be added</dd>
+            </div>
+            <div class="record__row">
+              <dt class="label">Programme</dt>
+              <dd class="value">MCA</dd>
+            </div>
+            <div class="record__row">
+              <dt class="label">Email</dt>
+              <dd class="value value--wrap todo">To be added</dd>
+            </div>
+            <div class="record__row">
+              <dt class="label">GitHub</dt>
+              <dd class="value value--mono todo">To be added</dd>
+            </div>
+          </dl>
+
+          <footer class="teamcard__foot">
+            <span class="tag">Client-side behaviour</span>
+          </footer>
+        </article>
+
+      </div>
     </section>
+
+    <p class="footnote">Student Information System &middot; Collaborative Git Workflow Lab</p>
   </main>
 
   <script src="script.js"></script>
