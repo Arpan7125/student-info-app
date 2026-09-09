@@ -197,6 +197,7 @@ The Pull Request became mergeable and the team lead merged it.
 | [`docs/conflict-evidence.md`](docs/conflict-evidence.md) | Terminal capture of the conflict and its resolution |
 | [`docs/lab-steps.md`](docs/lab-steps.md) | Every command used, in order |
 | [`docs/screenshots/`](docs/screenshots) | Application screenshots, light and dark, desktop and mobile |
+| [`docs/screenshots/06-github-conflict.png`](docs/screenshots/06-github-conflict.png) | GitHub blocking PR #5 on the merge conflict |
 
 ---
 
