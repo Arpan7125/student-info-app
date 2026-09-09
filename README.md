@@ -10,14 +10,17 @@ it is the branching, pull-request and conflict-resolution workflow used to build
 
 ## Team Members
 
+**Group 15**
+
 | Student | Register No. | Role | Responsibility |
 |---------|--------------|------|----------------|
-| Arpan Mukherjee ([@Arpan7125](https://github.com/Arpan7125)) | 2547116 | Team Lead / Developer | Repository creation, base application, reviews, integration |
-| Team Member 2 | _to be added_ | UI Developer | HTML structure and CSS styling |
-| Team Member 3 | _to be added_ | JavaScript Developer | Client-side interactivity |
+| Arpan Mukherjee ([@Arpan7125](https://github.com/Arpan7125)) | _to be confirmed_ | Team Lead / Developer | Repository creation, base application, reviews, integration |
+| Joshua George Philip | 2547116 | UI Developer | HTML structure and CSS styling |
+| M A Smera | 2547131 | JavaScript Developer | Client-side interactivity |
 
-> Replace the placeholder names before submission — in this table and in the Project Team
-> cards in `index.html` (search for `To be added`).
+> Still to fill in: Arpan's register number, and both teammates' email addresses and GitHub
+> usernames — in this table and in the Project Team cards in `index.html`
+> (search for `To be added` / `To be confirmed`).
 
 ---
 
